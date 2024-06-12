@@ -1,24 +1,44 @@
 {
-  "name": "coding-challenge-QA-Automation-Engineer",
+  "name": "playwright-typescript-playwright-test",
   "version": "1.0.0",
+  "description": "Playwright Framework with Typescript",
   "main": "index.js",
-  "repository": "git@github.com:ninetydays/coding-challenge-QA-Automation-Engineer.git",
-  "author": "jscripter-pk <islam.bscs3275@iiu.edu.pk>",
-  "license": "MIT",
-  "devDependencies": {
-    "@playwright/test": "^1.40.0",
-    "@types/node": "^20.11.30",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-playwright": "^0.20.0",
-    "typescript": "^4.9.4"
-  },
   "scripts": {
-    "lint": "eslint . --ext .ts",
-    "test": "playwright test"
+    "test": "npx playwright test",
+    "test:single": "npx playwright test Login.test.ts --project=Chrome",
+    "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
+    "test:serial": "npx playwright test --grep @Smoke --workers=1 --project=Chrome",
+    "test:ui": "npx playwright test --grep @Smoke --ui",
+    "test:api": "npx playwright test --grep @API --workers=1 --project=Chrome",
+    "test:db": "npx playwright test DB.test.ts --project=DB",
+    "test:record": "npx playwright codegen",
+    "test:visual": "npx playwright test visualComparision.test.ts --project=Chrome",
+    "test:device": "npx playwright test Emulation.test.ts --project=Device",
+    "allureReport": "allure serve",
+    "lighthouse": "node tests/lighthouse/Lighthouse.js",
+    "test:accessibility": "npx playwright test Axe.test.ts --project=Chrome"
   },
+  "author": "Achal Joshi",
+  "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "@axe-core/playwright": "^4.9.0",
+    "@playwright/test": "^1.44.0",
+    "@types/adm-zip": "^0.5.5",
+    "@types/crypto-js": "^4.2.2",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "adm-zip": "^0.5.12",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^2.15.1",
+    "crypto-js": "^4.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "exceljs": "^4.4.0",
+    "lighthouse": "^9.6.8",
+    "npm": "^10.7.0",
+    "pdfjs-dist-es5": "^2.13.216",
+    "pg": "^8.11.5",
+    "typescript": "^5.4.5",
+    "winston": "^3.13.0"
   }
 }
